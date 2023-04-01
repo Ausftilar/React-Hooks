@@ -1,4 +1,6 @@
-# useStorageState
+# Использование хуков
+
+## useStorageState
 
 Этот хук предназначен для для облегчения работы с localStorage и sessionStorage.
 Работать с ним очень просто, как с обычным useState. Вам не нужно думать сериализации и десиарилизации данных. Она все делает за вас
@@ -11,12 +13,13 @@ InitialValue - принимает начальное значение, или ф
 
 ## Пример использования:
 
-`export function App() {
-const [state, setState] = useStorageState({
-storage: 'local',
-key: 'test',
-initialState: [{id: 1, name: Mikhail}, {id: 2, name: Ivan}],
-});
+```
+export function App() {
+    const [state, setState] = useStorageState({
+    storage: 'local',
+    key: 'test',
+    initialState: [{id: 1, name: Mikhail}, {id: 2, name: Ivan}],
+    });
 
     setState(state.push({id: 3, name: Oleg}))
 
@@ -30,4 +33,5 @@ initialState: [{id: 1, name: Mikhail}, {id: 2, name: Ivan}],
         </ul>
     };
 
-}`
+}
+```
