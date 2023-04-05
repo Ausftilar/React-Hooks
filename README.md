@@ -92,3 +92,37 @@ export function App() {
     }, [latestValue]);
 }
 ```
+
+## useDebounce
+
+Этот хук предназначен для отложенной загрузки.
+Принимет первым аргументом callback-функцию, вторым задержку
+
+!Я пока его не типизировал, так что придется потерпеть!
+
+### Пример использования
+```
+export function App() {
+    const [value, setValue] = useState('');
+    const debouncedSearch = useDebounce(search, 300);
+
+    function search(query) {
+        fetch(`https://jsonplaceholder.typicode.com/todos?query=`+query)
+            .then(response => response.json>)
+            .then((json) => console.log(json));
+    }
+
+    function onChange(event: ChangeEvent<HTMLInputElement>) {
+        const getValue = event.target.value;
+
+        setValue(getValue);
+        debouncedSearch(getValue);
+    }
+
+    return (
+        <div>
+            <input value={value} onChange={onChange} type="text"/>
+        </div>
+    );
+}
+```
