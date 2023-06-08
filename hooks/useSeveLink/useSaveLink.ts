@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
 
-export function useSaveLink<T>(value: T) {
+export function useSaveLink<Value>(value: Value) {
   const valueRef = useRef(value);
 
   useLayoutEffect(() => {
